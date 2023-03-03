@@ -1,0 +1,22 @@
+JS Deep Filter
+Objective: Implement a generic object array filter
+
+* Technical requirements:
+1. Implement a filterCollection() function that will allow you to filter any array by given keywords.
+"2. The function must take three arguments as input:
+   - array to be filtered
+   - a string with the keywords to be found inside the array (single word or multiple words separated by spaces
+   - boolean flag that will say whether all keywords should be found (true), or if one of them matches (false)
+   - the fourth and subsequent arguments will be the names of the fields within which to look for a match. If the field is not at the first level of the object, you must specify the full path to it through '.'
+   - the nesting level of the fields can be any."
+"3. Function call example:
+
+```filterCollection(vehicles, 'en_US Toyota', true, 'name', 'description', 'contentType.name', 'locales.name', 'locales.description')```
+
+- In this example, the ```vehicles``` array will be filtered using the keywords en_US and Toyota. ```true``` in the third parameter means that for the entry to be successfully included in the final result, there must be a match for both keywords. The last few parameters contain the names of the fields within which to search for keywords. For example ```contentType.name``` means that inside each ```vehicle``` object there can be a ```contentType.field```, which is an object or an array of objects inside which there can be a ```name``` field. It is in this field (as well as in others indicated) that it is necessary to look for matches with keywords.
+
+- In the example above, the entry ```locales.name``` means that the ```locales``` field inside the ```vehicle``` object can be either an object or an array. If it is an array, it means that there are objects inside the array, each of which can have a ```name``` property. For successful filtering, it is enough to find the keyword in at least one of the array elements.
+
+- Different keywords can be in different object properties. In the example above, the keyword ```en_US``` can be found in the ```locales.name``` field, while the keyword ```Toyota``` can, for example, be found inside the ```description`` property `. In this case, such an object must be found.
+
+- The search must be case insensitive." 
